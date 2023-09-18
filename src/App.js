@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import CSS from './App.css'
+import Search from './Components/Search'
+import Pagination from './Components/Pagination'
+import Blogs from './Components/Blogs'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+const [darkTheme,setDarkTheme] =useState(false);
+function themeSwitcher(){
+  if(!darkTheme) setDarkTheme(true);
+  else setDarkTheme(false)
+
 }
 
-export default App;
+  return (
+    <main className={darkTheme ? 'dark' : ''}>
+     <h1 className={darkTheme ? 'dark' : ''}>Read the latest news</h1>
+     <button onClick={() => themeSwitcher()} className='theme-btn'><i style={ darkTheme ? {display : 'none'} : {display : 'unset'}} class="fa-solid fa-moon"></i><i style={ !darkTheme ? {display : 'none'} : {display : 'unset',color : 'white'}} class="fa-regular fa-lightbulb"></i></button>
+     <Search darkTheme = {darkTheme}/>
+     <Pagination/>
+     <Blogs darkTheme = {darkTheme} />
+    </main>
+  )
+}
+
+export default App
