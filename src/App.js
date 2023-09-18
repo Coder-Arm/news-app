@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CSS from './App.css'
+import './App.css'
 import Search from './Components/Search'
 import Pagination from './Components/Pagination'
 import Blogs from './Components/Blogs'
