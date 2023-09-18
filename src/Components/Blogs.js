@@ -16,7 +16,7 @@ const Blogs = ({darkTheme}) => {
     <div className='blogs-container'>
       {data.map((item,idx) => {
         return (
-            <div className={ darkTheme ? 'card dark' : 'card'}>
+            <div key={idx} className={ darkTheme ? 'card dark' : 'card'}>
               <h2 className={ darkTheme ? 'dark' : ''}>{item.title ? item.title : item.story_text}</h2>
               <div className='bottom-content'>
               <div>
